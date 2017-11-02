@@ -117,11 +117,20 @@ static int32_t getColorFormat(const char* colorFormat) {
         ALOGE("Invalid color format");
         return -1;
     }
+#ifdef MTK_HARDWARE
+    if (!strcmp(colorFormat, CameraParameters::PIXEL_FORMAT_YUV420P)) {
+	   static const int OMX_MTK_COLOR_FormatYV12 = 0x7F000200;
+       return OMX_MTK_COLOR_FormatYV12;
+    }
 
+    if (!strcmp(colorFormat, CameraParameters::PIXEL_FORMAT_YUV420I)) {
+       return OMX_COLOR_FormatYUV420Planar;
+    }
+#else
     if (!strcmp(colorFormat, CameraParameters::PIXEL_FORMAT_YUV420P)) {
        return OMX_COLOR_FormatYUV420Planar;
     }
-
+#endif
     if (!strcmp(colorFormat, CameraParameters::PIXEL_FORMAT_YUV422SP)) {
        return OMX_COLOR_FormatYUV422SemiPlanar;
     }

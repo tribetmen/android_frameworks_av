@@ -618,6 +618,7 @@ public:
     static const char PIXEL_FORMAT_YUV420SP[]; // NV21
     static const char PIXEL_FORMAT_YUV422I[]; // YUY2
     static const char PIXEL_FORMAT_YUV420P[]; // YV12
+    static const char PIXEL_FORMAT_YUV420I[];
     static const char PIXEL_FORMAT_RGB565[];
     static const char PIXEL_FORMAT_RGBA8888[];
     static const char PIXEL_FORMAT_JPEG[];
